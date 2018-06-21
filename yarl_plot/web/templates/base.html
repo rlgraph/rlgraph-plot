@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YARL plotting utility</title>
+
+    {% block base_css %}
+    <link href="https://fonts.googleapis.com/css?family=Lato|Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/yarl_plot.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mermaid.css') }}"/>
+        {% block css %}
+        {% endblock %}
+    {% endblock %}
+
+
+</head>
+<body>
+    {% block full_navi %}
+    <nav id="nav">
+        <div class="container">
+            <a class="line logo left" href="/">YARL plot</a>
+            <a class="line menu right button" href="#"><span>Menu</span></a>
+
+            <ul class="nav">
+                <li class="menu-ite">
+                    <a target="_self" href="/">Plot</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block header %}
+    <header id="header" class="web-section color parallax not-image-statistics">
+        <div id="top" class="container">
+            <div class="row vertical-align">
+                <div class="col-xs-12 col-sm-7 callout">
+                    <h2>YARL plotting utility</h2>
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    <div class="image-container center">
+                        <h2>YARL plot</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endblock %}
+
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    {% block footer %}
+    <footer id="footer">
+        <div class="container">
+            <ul class="nav bottom-navigation">
+                <li>&copy; 2018 yarl-project.org</li>
+                <li><a href="dev@yarl-project.org">dev@yarl-project.org</a></li>
+            </ul>
+            <p class="small">Cambridge, United Kingdom</p>
+        </div>
+    </footer>
+    {% endblock %}
+
+    {% block base_javascript %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.0.0/mermaidAPI.js"></script>
+    {# <script src="{{ url_for('static', filename='mermaid/src/mermaid.js') }}"></script> #}
+        {% block javascript %}
+        {% endblock %}
+    {% endblock %}
+
+
+</body>
+</html>

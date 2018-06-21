@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="web-section container">
+    <div class="mermaid">
+        {% block graph %}
+
+        {% endblock %}
+    </div>
+</section>
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        mermaidAPI.initialize({startOnLoad:true});
+        mermaid_divs = document.getElementsByClassName('mermaid');
+        console.log(mermaid_divs);
+        for (i in mermaid_divs) {
+            mermaid_div = mermaid_divs[i];
+
+        }
+
+    </script>
+{% endblock %}
