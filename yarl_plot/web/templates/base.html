@@ -68,8 +68,9 @@
     {% endblock %}
 
     {% block base_javascript %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.0.0/mermaidAPI.js"></script>
-    {# <script src="{{ url_for('static', filename='mermaid/src/mermaid.js') }}"></script> #}
+        {#  <script src="https://raw.githubusercontent.com/knsv/mermaid/fb70b9742a22f8673cdd3a8d74fcbbc6ea03b432/dist/mermaidAPI.min.js"></script> #}
+        <script src="{{ url_for('static', filename='js/mermaid.min.js') }}"></script>
+        {# <script src="{{ url_for('static', filename='js/mermaid_transform.js') }}"></script> #}
         {% block javascript %}
         {% endblock %}
     {% endblock %}
