@@ -70,7 +70,8 @@
     {% block base_javascript %}
         {#  <script src="https://raw.githubusercontent.com/knsv/mermaid/fb70b9742a22f8673cdd3a8d74fcbbc6ea03b432/dist/mermaidAPI.min.js"></script> #}
         <script src="{{ url_for('static', filename='js/mermaid.min.js') }}"></script>
-        {# <script src="{{ url_for('static', filename='js/mermaid_transform.js') }}"></script> #}
+        <script src="{{ url_for('static', filename='js/svg-pan-zoom.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/yarl_plot.js') }}"></script>
         {% block javascript %}
         {% endblock %}
     {% endblock %}

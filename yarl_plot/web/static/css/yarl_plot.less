@@ -414,10 +414,6 @@ section, .web-section {
 
     &.dark {
         .web-section-dark;
-        
-        &.pattern {
-            .bg-pattern('../images/absurdity.png');
-        }
     }
     
     &.color {
@@ -437,10 +433,6 @@ section, .web-section {
                 color: @col-hl;
             }
         }
-    }
-    
-    &.pattern {
-        .bg-pattern('../images/absurdity.png');
     }
 
     &.medium {
@@ -693,7 +685,7 @@ header, header.web-section {
         
         width: 20px;
         height: 20px;
-        background-image: url("../images/arrow_down.png");
+        //background-image: url("../images/arrow_down.png");
         background-repeat: no-repeat;
         background-position: bottom center;
         background-size: 100% 100%;
@@ -1011,49 +1003,6 @@ figcaption {
         }
     }
 }
-  
-
-.comment-list {
-    padding: 1em 0 0;
-    
-    .comment {
-        padding: 1em 2em;
-        margin: 0 0 2em;
-        
-        background-color: @col-white;
-        
-        &:last-child {
-            margin-bottom: 0;
-        }
-        
-        .comment-meta {
-            font-size: 0.8em;
-        }
-        
-        &.level-mod-1 {
-            background-color: @col-grey;
-        }
-    }
-}
-
-.web-section.light .comment-list .comment {
-    background-color: @col-grey;
-    
-    &.level-mod-1 {
-        background-color: @col-white;
-    }
-}
-
-.comment-reply-list {   
-    margin-top: 1em;
-    .comment-reply {
-        margin-bottom: 2em;
-        
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-}
 
 pre.sourceCode {
     padding: 1em;
@@ -1072,20 +1021,6 @@ pre.sourceCode {
 footer, .footer {
 
 }
-
-.team-overview {
-    .row {
-        padding-bottom: @box-padding;
-        
-        &:last-child {
-            padding-bottom: inherit;
-        }
-    }
-    .team-description {
-        padding-top: 55px;
-    }
-}
-    
 
 @media (max-width: 991px) {
     .vertical-align {
@@ -1186,4 +1121,8 @@ footer, .footer {
             display: block;
         }
     }
+}
+
+.svg_container {
+    border: 1px solid #666666;
 }

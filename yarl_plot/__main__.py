@@ -36,6 +36,8 @@ def main():
     parser.add_argument('--host', default="localhost", help='Webserver host')
     parser.add_argument('--port', default="8080", type=int, help='Webserver port')
 
+    parser.add_argument('--no-graph-fns', dest='no_graph_fns', action='store_true', default=False)
+
     args = parser.parse_args()
 
     # Load python file and read its contents
@@ -62,7 +64,7 @@ def main():
                 args.component, ', '.join(components)
             ))
         else:
-            graph_markup = get_graph_markup(components[args.component])
+            graph_markup = get_graph_markup(components[args.component], draw_graph_fns=not args.no_graph_fns)
 
     if args.mode == 'web':
         import webbrowser as wb
