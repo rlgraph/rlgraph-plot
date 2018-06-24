@@ -17,10 +17,28 @@ from __future__ import absolute_import
 from __future__ import print_function
 from __future__ import division
 
-from flask import render_template
+import json
+
+from flask import request, render_template
 from yarl_plot.web import app, gv
 
 
 @app.route('/', methods=['GET'])
 def web_index():
     return render_template('simple_plot.html', graph_markup=gv.get('graph_markup'))
+
+
+@app.route('/markup', methods=['POST'])
+def web_markup():
+    data = request.form
+    graph_markup = data.get('graph_markup')
+    token = data.get('token')
+
+    if gv['token'] and str(token) != str(gv['token']):
+        return json.dumps(dict(status='error', error='Invalid token')), 403
+
+    if not graph_markup:
+        return json.dumps(dict(status='error', error='No data received')), 400
+
+    gv['graph_markup'] = graph_markup
+    return json.dumps(dict(status='ok')), 200

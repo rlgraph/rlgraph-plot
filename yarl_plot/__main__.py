@@ -28,10 +28,17 @@ from yarl.utils.visualization_util import get_graph_markup
 
 def main():
     parser = argparse.ArgumentParser(description='Plot yarl metagraphs.')
-    parser.add_argument('file', help='Python file containing components')
 
-    parser.add_argument('--component', default=None, help='Component to plot')
-    parser.add_argument('--mode', default="web", help='Plot mode (web/png/pdf)')
+    parser.add_argument('--listen', '-L', dest="listen", action='store_true', default=False,
+                        help='Listen and wait forr markups')
+    parser.add_argument('--token', '-T', default=None,
+                        help='Token needed to post graph markups (default empty)')
+
+    parser.add_argument('--file', '-f', help='Python file containing components')
+
+    parser.add_argument('--component', '-c', default=None, help='Component to plot')
+
+    parser.add_argument('--mode', '-m', default="web", help='Mode (web/png/pdf)')
 
     parser.add_argument('--host', default="localhost", help='Webserver host')
     parser.add_argument('--port', default="8080", type=int, help='Webserver port')
@@ -40,37 +47,49 @@ def main():
 
     args = parser.parse_args()
 
-    # Load python file and read its contents
-    with open(args.file, 'r') as fp:
-        file_content = fp.read()
-
-    # Execute file contents
-    exec(file_content)
-
-    # Loop through local variables to find components
-    components = dict()
-    for key, var in locals().items():
-        if isinstance(var, Component):
-            components[key] = var
-
-    if not args.component:
-        print("Please select one of the following components: \n{}".format(
-            '\n'.join(components)
-        ))
+    if args.listen and args.file:
+        print("Please select either --file or --listen, not both.")
         sys.exit(1)
-    else:
-        if args.component not in components:
-            raise ValueError("Did not find component {} in available components: {}".format(
-                args.component, ', '.join(components)
+
+    if args.file:
+        # Load python file and read its contents
+        with open(args.file, 'r') as fp:
+            file_content = fp.read()
+
+        # Execute file contents
+        exec(file_content)
+
+        # Loop through local variables to find components
+        components = dict()
+        for key, var in locals().items():
+            if isinstance(var, Component):
+                components[key] = var
+
+        if not args.component:
+            print("Please select one of the following components: \n{}".format(
+                '\n'.join(components)
             ))
+            sys.exit(1)
         else:
-            graph_markup = get_graph_markup(components[args.component], draw_graph_fns=not args.no_graph_fns)
+            if args.component not in components:
+                raise ValueError("Did not find component {} in available components: {}".format(
+                    args.component, ', '.join(components)
+                ))
+            else:
+                graph_markup = get_graph_markup(components[args.component], draw_graph_fns=not args.no_graph_fns)
+    else:
+        if args.mode != 'web':
+            print("Option --listen only works with mode 'web'.")
+            sys.exit(1)
+
+        graph_markup = ''
 
     if args.mode == 'web':
         import webbrowser as wb
         from yarl_plot.web import app, gv
 
         gv['graph_markup'] = graph_markup
+        gv['token'] = args.token
         wb.open_new_tab('http://{host}:{port}'.format(host=args.host, port=args.port))
         app.run(host=args.host, port=args.port)
     else:

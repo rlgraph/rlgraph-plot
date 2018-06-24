@@ -21,6 +21,6 @@ from flask import Flask
 
 
 app = Flask(__name__, instance_relative_config=True, static_folder='static', template_folder='templates')
-gv = dict()  # Global variable dict
+gv = dict(graph_markup=str(), token=None)  # Global variable dict
 
 import yarl_plot.web.views

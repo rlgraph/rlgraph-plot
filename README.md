@@ -24,14 +24,23 @@ sudo python3 -m pip install -e .
 ## Usage
 
 ```bash
-yarl-plot file [--component COMPONENT] [--mode MODE] [--host HOST] [--port PORT]
+yarl-plot [--listen] [--token TOKEN] [--file FILE] [--component COMPONENT] [--mode MODE] [--host HOST] [--port PORT]
 ```
 
 For example:
 
 ```bash
-yarl-plot dqn_agent.py --component exploration --mode web
+yarl-plot --file dqn_agent.py --component exploration --mode web
 ```
 
 This will run a local webserver and open a browser window at http://localhost:8080 (default host and port) and
 display the YARL metagraph.
+
+Other examples:
+
+```bash
+yarl-plot --listen
+```
+
+This allows you to use `yarl.utils.visualization_util.send_graph_markup()` to send the graph markup to the local
+webserver and display the current component. Use this for pseudo-interactive development.
