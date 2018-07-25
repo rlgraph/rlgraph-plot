@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2018 The YARL-Project, All Rights Reserved.
+# Copyright 2018 The RLgraph project. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -86,7 +86,7 @@ def main():
 
     if args.mode == 'web':
         import webbrowser as wb
-        from yarl_plot.web import app, gv
+        from rlgraph_plot.web import app, gv
 
         gv['graph_markup'] = graph_markup
         gv['token'] = args.token
