@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>YARL plotting utility</title>
+    <title>RLgraph plotting utility</title>
 
     {% block base_css %}
     <link href="https://fonts.googleapis.com/css?family=Lato|Source+Code+Pro" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/yarl_plot.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rlgraph_plot.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mermaid.css') }}"/>
         {% block css %}
         {% endblock %}
@@ -18,7 +18,7 @@
     {% block full_navi %}
     <nav id="nav">
         <div class="container">
-            <a class="line logo left" href="/">YARL plot</a>
+            <a class="line logo left" href="/">RLgraph plot</a>
             <a class="line menu right button" href="#"><span>Menu</span></a>
 
             <ul class="nav">
@@ -36,11 +36,11 @@
         <div id="top" class="container">
             <div class="row vertical-align">
                 <div class="col-xs-12 col-sm-7 callout">
-                    <h2>YARL plotting utility</h2>
+                    <h2>RLgraph plotting utility</h2>
                 </div>
                 <div class="col-xs-12 col-sm-5">
                     <div class="image-container center">
-                        <h2>YARL plot</h2>
+                        <h2>RLgraph plot</h2>
                     </div>
                 </div>
             </div>
@@ -59,8 +59,8 @@
     <footer id="footer">
         <div class="container">
             <ul class="nav bottom-navigation">
-                <li>&copy; 2018 yarl-project.org</li>
-                <li><a href="dev@yarl-project.org">dev@yarl-project.org</a></li>
+                <li>&copy; 2018 rlgraph.org</li>
+                <li><a href="dev@rlgraph.org">dev@rlgraph.org</a></li>
             </ul>
             <p class="small">Cambridge, United Kingdom</p>
         </div>
@@ -71,7 +71,7 @@
         {#  <script src="https://raw.githubusercontent.com/knsv/mermaid/fb70b9742a22f8673cdd3a8d74fcbbc6ea03b432/dist/mermaidAPI.min.js"></script> #}
         <script src="{{ url_for('static', filename='js/mermaid.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/svg-pan-zoom.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/yarl_plot.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/rlgraph_plot.js') }}"></script>
         {% block javascript %}
         {% endblock %}
     {% endblock %}

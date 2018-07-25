@@ -22,12 +22,12 @@ from __future__ import division
 import argparse
 import sys
 
-from yarl.components import Component
-from yarl.utils.visualization_util import get_graph_markup
+from rlgraph.components import Component
+from rlgraph.utils.visualization_util import get_graph_markup
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Plot yarl metagraphs.')
+    parser = argparse.ArgumentParser(description='Plot RLgraph metagraphs.')
 
     parser.add_argument('--listen', '-L', dest="listen", action='store_true', default=False,
                         help='Listen and wait forr markups')
