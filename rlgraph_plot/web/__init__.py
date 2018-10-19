@@ -1,4 +1,4 @@
-# Copyright 2018 The YARL-Project, All Rights Reserved.
+# Copyright 2018 The RLgraph authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,4 +23,4 @@ from flask import Flask
 app = Flask(__name__, instance_relative_config=True, static_folder='static', template_folder='templates')
 gv = dict(graph_markup=str(), token=None)  # Global variable dict
 
-import yarl_plot.web.views
+import rlgraph_plot.web.views

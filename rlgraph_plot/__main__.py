@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2018 The YARL-Project, All Rights Reserved.
+# Copyright 2018 The RLgraph authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,12 +22,12 @@ from __future__ import division
 import argparse
 import sys
 
-from yarl.components import Component
-from yarl.utils.visualization_util import get_graph_markup
+from rlgraph.components import Component
+from rlgraph.utils.visualization_util import get_graph_markup
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Plot yarl metagraphs.')
+    parser = argparse.ArgumentParser(description='Plot RLgraph metagraphs.')
 
     parser.add_argument('--listen', '-L', dest="listen", action='store_true', default=False,
                         help='Listen and wait forr markups')
@@ -86,7 +86,7 @@ def main():
 
     if args.mode == 'web':
         import webbrowser as wb
-        from yarl_plot.web import app, gv
+        from rlgraph_plot.web import app, gv
 
         gv['graph_markup'] = graph_markup
         gv['token'] = args.token

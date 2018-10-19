@@ -1,4 +1,4 @@
-# Copyright 2018 The YARL-Project, All Rights Reserved.
+# Copyright 2018 The RLgraph authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,11 +22,11 @@ from setuptools import setup, find_packages
 
 # Read __version__ avoiding imports that might be in install_requires
 version_vars = dict()
-with open(os.path.join(os.path.dirname(__file__), 'yarl_plot', 'version.py')) as fp:
+with open(os.path.join(os.path.dirname(__file__), 'rlgraph_plot', 'version.py')) as fp:
     exec(fp.read(), version_vars)
 
 install_requires = [
-    'yarl',
+    'rlgraph',
     'flask'
 ]
 
@@ -37,19 +37,19 @@ extras_require = {
 
 entry_points = {
     'console_scripts': [
-        'yarl-plot = yarl_plot.__main__:main'
+        'rlgraph-plot = rlgraph_plot.__main__:main'
     ]
 }
 
 setup(
-    name='yarl-plot',
+    name='rlgraph-plot',
     version=version_vars['__version__'],
-    description='YARL metagraph plotting library',
-    url='https://yarl-project.org',
-    author='yarl',
-    author_email='yarl@yarl-project.org',
+    description='RLgraph metagraph plotting library',
+    url='https://rlcore.ai',
+    author='RLcore',
+    author_email='dev@rlcore.ai',
     license='Apache 2.0',
-    packages=[package for package in find_packages() if package.startswith('yarl_plot')],
+    packages=[package for package in find_packages() if package.startswith('rlgraph_plot')],
     install_requires=install_requires,
     setup_requires=setup_requires,
     extras_require=extras_require,

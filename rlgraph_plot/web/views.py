@@ -1,4 +1,4 @@
-# Copyright 2018 The YARL-Project, All Rights Reserved.
+# Copyright 2018 The RLgraph authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ from __future__ import division
 import json
 
 from flask import request, render_template
-from yarl_plot.web import app, gv
+from rlgraph_plot.web import app, gv
 
 
 @app.route('/', methods=['GET'])
